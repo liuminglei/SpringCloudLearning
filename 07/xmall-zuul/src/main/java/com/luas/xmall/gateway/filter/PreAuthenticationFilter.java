@@ -37,7 +37,7 @@ public class PreAuthenticationFilter extends ZuulFilter {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
 
-        logger.info(String.format("[%s] url process", request.getRequestURL().toString(), request.getMethod()));
+        logger.info(String.format("[%s] %s process", request.getRequestURL().toString(), request.getMethod()));
 
         String token = request.getParameter("token");
 
