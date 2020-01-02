@@ -65,6 +65,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
         clients
                 .inMemory()
+                // admin，授权码认证、密码认证、客户端认证、简单认证、刷新token
                 .withClient("admin")
                 .secret(client_secret)
                 .resourceIds("xmall-auth", "xmall-product")
@@ -73,8 +74,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .redirectUris("http://www.baidu.com")
 
                 .and()
-
-                .inMemory()
+                // client_1，密码认证、刷新token
                 .withClient("client_1")
                 .secret(client_secret)
                 .resourceIds("xmall-auth", "xmall-product")
@@ -82,8 +82,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .authorizedGrantTypes("password", "refresh_token")
 
                 .and()
-
-                .inMemory()
+                // client_2，客户端认证、刷新token
                 .withClient("client_2")
                 .secret(client_secret)
                 .resourceIds("xmall-auth", "xmall-product")
