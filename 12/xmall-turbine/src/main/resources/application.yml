@@ -1,0 +1,21 @@
+server:
+  port: 8888
+
+turbine:
+  app-config: xmall-product-clients-feign, xmall-product-clients-ribbon
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: "'default'"
+  combine-host: true
+#  instanceUrlSuffix:
+#    default: actuator/hystrix.stream
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      cors:
+        allowed-origins: '*'
+        allowed-methods: '*'
