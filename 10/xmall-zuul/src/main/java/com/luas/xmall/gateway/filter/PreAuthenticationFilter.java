@@ -45,7 +45,7 @@ public class PreAuthenticationFilter extends ZuulFilter {
 
         String requestURI = request.getRequestURI();
 
-        return !(requestURI.equals(TOKEN_ENDPOINT) && requestURI.equals(TOKEN_KEY_ENDPOINT) && requestURI.equals(CHECK_TOKEN_ENDPOINT));
+        return !(requestURI.equals(TOKEN_ENDPOINT) || requestURI.equals(TOKEN_KEY_ENDPOINT) || requestURI.equals(CHECK_TOKEN_ENDPOINT));
     }
 
     @Override
