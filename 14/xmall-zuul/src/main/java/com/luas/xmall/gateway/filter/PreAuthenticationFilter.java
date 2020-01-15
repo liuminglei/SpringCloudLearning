@@ -1,11 +1,12 @@
 package com.luas.xmall.gateway.filter;
 
-import com.alibaba.fastjson.JSONObject;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.authentication.BearerTokenExtractor;
@@ -69,13 +70,9 @@ public class PreAuthenticationFilter extends ZuulFilter {
             return null;
         }
 
-        if (this.logger.isDebugEnabled()) {
-            this.logger.debug("tokenServices class is {}", this.tokenServices.getClass().getName());
-            this.logger.debug("authentication class is {}", authentication.getClass().getName());
-            this.logger.debug("authentication is {}", JSONObject.toJSONString(authentication));
-        }
-
         String accessToken = (String) authentication.getPrincipal();
+
+        this.logger.debug("access token is {}", accessToken);
 
         /* 解析token，将user信息放入request，传递给下游微服务 */
 
@@ -83,11 +80,10 @@ public class PreAuthenticationFilter extends ZuulFilter {
         OAuth2Authentication oAuth2Authentication = this.tokenServices.loadAuthentication(accessToken);
 
         if (this.logger.isDebugEnabled()) {
-            this.logger.debug("OAuth2Authentication class is {}", oAuth2Authentication.getClass().getName());
-            this.logger.debug("OAuth2Authentication is {}", JSONObject.toJSONString(oAuth2Authentication));
+            this.logger.debug("user is {}", oAuth2Authentication.getName());
         }
 
-        // 根据token获取user信息
+        // 根据用户名调用feign客户端或rest方式获取user信息
 
         // 将user信息放入request，传递给下游微服务
         // requestContext.addZuulRequestHeader("", "");
