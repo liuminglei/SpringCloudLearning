@@ -20,3 +20,6 @@ security:
       user-info-uri: http://localhost:7777/oauth/user
       prefer-token-info: false
 
+feign:
+  hystrix:
+    enabled: true
