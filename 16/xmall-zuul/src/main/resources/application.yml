@@ -1,0 +1,39 @@
+server:
+  port: 5566
+
+zuul:
+  prefix: /gateway
+  sensitive-headers:
+  routes:
+    auth:
+      path: /auth/**
+      service-id: xmall-auth
+      strip-prefix: true
+    product:
+      path: /product/**
+      service-id: xmall-product
+      strip-prefix: true
+  ribbon-isolation-strategy: thread
+
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          strategy: THREAD
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:7777/oauth/user
+      prefer-token-info: false
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
