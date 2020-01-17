@@ -1,0 +1,94 @@
+server:
+  port: 5566
+  tomcat:
+    max-threads: 2000
+    min-spare-threads: 400
+    max-connections: 30000
+  max-http-header-size: 10MB
+
+zuul:
+  prefix: /gateway
+  sensitive-headers:
+  routes:
+    auth:
+      path: /auth/**
+      service-id: xmall-auth
+      strip-prefix: true
+    product:
+      path: /product/**
+      service-id: xmall-product
+      strip-prefix: true
+  host:
+    max-per-route-connections: 500
+    max-total-connections: 6000
+    connect-timeout-millis: 70000
+    socket-timeout-millis: 60000
+# hystrix 隔离策略
+  ribbon-isolation-strategy: thread
+#  zuul hystrix semaphore配置
+#  semaphore:
+#    max-semaphores: 5000
+
+#  zuul hystrix thread pool配置
+
+#  thread-pool:
+#    use-separate-thread-pools: false
+#    thread-pool-key-prefix: test-
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 300000
+# hystrix 默认线程池配置
+  threadpool:
+    default:
+      coreSize: 600
+      maximumSize: 1000
+      maxQueueSize: -1
+
+#  hystrix 服务自定义线程池配置
+#    xmall-auth:
+#      coreSize: 600
+#      maximumSize: 1000
+#      maxQueueSize: -1
+
+# ribbon配置
+ribbon:
+  MaxConnectionsPerHost: 500
+  MaxTotalConnections: 2000
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:7777/oauth/user
+      prefer-token-info: false
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 40000
+        loggerLevel: full
+  httpclient:
+    enabled: false
+    connection-timeout: 60000
+    max-connections: 2000
+    max-connections-per-route: 500
+  # 启用okhttp
+  okhttp:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
