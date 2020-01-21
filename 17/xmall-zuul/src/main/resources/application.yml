@@ -23,6 +23,9 @@ zuul:
     max-total-connections: 6000
     connect-timeout-millis: 70000
     socket-timeout-millis: 60000
+#    connection-request-timeout-millis: -1
+#    time-to-live: -1
+#    time-unit: milliseconds
 # hystrix 隔离策略
   ribbon-isolation-strategy: thread
 #  zuul hystrix semaphore配置
@@ -62,6 +65,8 @@ ribbon:
   MaxTotalConnections: 2000
   ConnectTimeout: 60000
   ReadTimeout: 60000
+#  MaxAutoRetries: 0
+#  MaxAutoRetriesNextServer: 1
 
 security:
   oauth2:
