@@ -15,6 +15,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.ClientRegistrationException;
+import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
 import javax.sql.DataSource;
@@ -73,6 +74,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     private ClientDetailsService jdbcClientDetailsService() throws Exception {
         return new JdbcClientDetailsServiceBuilder().dataSource(dataSource).passwordEncoder(passwordEncoder).build();
+
+        // 直接构建JdbcClientDetailsService对象
+//        JdbcClientDetailsService jdbcClientDetailsService = new JdbcClientDetailsService(dataSource);
+//        jdbcClientDetailsService.setPasswordEncoder(passwordEncoder);
+//        return jdbcClientDetailsService;
     }
 
     public ClientDetailsService myClientDetailsService() throws Exception {
