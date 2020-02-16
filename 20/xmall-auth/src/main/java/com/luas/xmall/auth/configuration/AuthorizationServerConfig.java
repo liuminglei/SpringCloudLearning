@@ -51,8 +51,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.tokenStore(new InMemoryTokenStore())
-                .authenticationManager(authenticationManager)
+        endpoints.authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService)
                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
                 .tokenStore(new RedisTokenStore(redisConnectionFactory));
