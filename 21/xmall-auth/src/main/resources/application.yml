@@ -1,0 +1,27 @@
+server:
+  port: 7777
+
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/xmall-auth?characterEncoding=utf8&generateSimpleParameterMetadata=true&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat,slf4j
+    maxActive: 20
+    initialSize: 2
+    minIdle: 1
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+
