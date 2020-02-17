@@ -1,6 +1,7 @@
 package com.luas.xmall.auth.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpMethod;
@@ -17,6 +18,7 @@ import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.ClientRegistrationException;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
+import org.springframework.security.oauth2.provider.endpoint.TokenKeyEndpoint;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.*;
 
@@ -62,6 +64,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // 配置方法1，只需配置DataSource即可，其它交给框架自动配置
         clients.jdbc(dataSource).passwordEncoder(passwordEncoder);
+    }
+
+    @Bean
+    public TokenKeyEndpoint tokenKeyEndpoint() {
+        return new TokenKeyEndpoint(jwtAccessTokenConverter());
     }
 
     private JwtAccessTokenConverter jwtAccessTokenConverter() {
