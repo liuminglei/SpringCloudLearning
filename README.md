@@ -54,11 +54,15 @@ Spring Cloud Greenwich.SR2, Spring Boot 2.1.7.RELEASE, Spring Cloud Alibab 2.1.
 * [避坑指南（六）：Hystrix超时时间小于ribbon超时时间报错](https://blog.csdn.net/liuminglei1987/article/details/104200256)
 * [避坑指南（七）：Spring Cloud Oauth2配置JwtTokenStore后不生效，依然生成普通token](https://blog.csdn.net/liuminglei1987/article/details/104414508)
 
-### 支持我
+### 后续
 
 * 这个系列会持续更新，敬请期待
-* 另外，笔者开通了个人微信公众号【银河架构师】，分享工作、生活过程中的心得体会，填坑指南，技术感悟等内容，会比博客提前更新，欢迎订阅。
-  ![@银河架构师](https://img-blog.csdnimg.cn/20200120104422781.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdW1pbmdsZWkxOTg3,size_16,color_FFFFFF,t_70)
+
+### 支持我
+
+笔者开通了个人微信公众号【银河架构师】，分享工作、生活过程中的心得体会，填坑指南，技术感悟等内容，会比博客提前更新，欢迎订阅。
+
+![@银河架构师](https://img-blog.csdnimg.cn/20200120104422781.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdW1pbmdsZWkxOTg3,size_16,color_FFFFFF,t_70)
 
 
 
