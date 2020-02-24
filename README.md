@@ -40,6 +40,8 @@ Spring Cloud Greenwich.SR2, Spring Boot 2.1.7.RELEASE, Spring Cloud Alibab 2.1.
 * [Spring Cloud进阶之路 | 十八：授权服务（Spring Cloud Oauth2）ClientDetailsService之JdbcClientDetailsService](https://blog.csdn.net/liuminglei1987/article/details/104363638)
 * [Spring Cloud进阶之路 | 十九：授权服务（Spring Cloud Oauth2）TokenStore之JdbcTokenStore](https://blog.csdn.net/liuminglei1987/article/details/104371385)
 * [Spring Cloud进阶之路 | 二十：授权服务（Spring Cloud Oauth2）TokenStore之RedisTokenStore](https://blog.csdn.net/liuminglei1987/article/details/104396970)
+* [Spring Cloud进阶之路 | 二十一：授权服务（Spring Cloud Oauth2）JWT实现-TokenStore之JwtTokenStore](https://blog.csdn.net/liuminglei1987/article/details/104471726)
+* [Spring Cloud进阶之路 | 二十二：资源服务（Spring Cloud Oauth2）JWT实现](https://blog.csdn.net/liuminglei1987/article/details/104471814)
 * 未完待续...
 
 
@@ -53,6 +55,7 @@ Spring Cloud Greenwich.SR2, Spring Boot 2.1.7.RELEASE, Spring Cloud Alibab 2.1.
 * [避坑指南（五）：Hystrix断路器监控指标详解](https://blog.csdn.net/liuminglei1987/article/details/104040958)
 * [避坑指南（六）：Hystrix超时时间小于ribbon超时时间报错](https://blog.csdn.net/liuminglei1987/article/details/104200256)
 * [避坑指南（七）：Spring Cloud Oauth2配置JwtTokenStore后不生效，依然生成普通token](https://blog.csdn.net/liuminglei1987/article/details/104414508)
+* [避坑指南（八）：Spring Cloud Oauth2 token_key端点404](https://blog.csdn.net/liuminglei1987/article/details/104471775)
 
 ### 后续
 
